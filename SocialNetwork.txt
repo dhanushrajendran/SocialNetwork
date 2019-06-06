@@ -1,0 +1,15 @@
+--PersonalDetails Table
+
+CREATE TABLE PersonalDetails(
+UserId int identity(1,1) primary key,
+UserName varchar(30) unique not null,
+MailId varchar(30) unique not null,
+PhoneNumber varchar(12) unique,
+DOB date not null,
+Gender varchar(10)  null,
+School varchar(50) null,
+College varchar(50)  null,
+Work varchar(50) not null,
+HomeTown varchar(50)  null,
+Pass_Word varchar(30) not null
+);
