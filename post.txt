@@ -1,0 +1,11 @@
+--Posts table
+
+
+CREATE TABLE Posts(
+PostId int identity(1,1) primary key,
+PostUserId int references [dbo].[PersonalDetails] (UserId) not null,
+PostLocation varchar(50),
+PostType varchar(10) not null,
+PostText varchar(8000) ,
+PostedDate date
+);
