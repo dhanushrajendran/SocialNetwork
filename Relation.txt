@@ -1,0 +1,11 @@
+--Relation Table
+
+
+CREATE TABLE Relation(
+RelationId int identity(1,1) primary key, 
+FriendId int foreign key references [dbo].[PersonalDetails]([UserId]),
+UserId int foreign key references [dbo].[PersonalDetails]([UserId]),
+StartDate date not null,
+EndDate date,
+RelationStatus varchar(3) not null
+); 
