@@ -1,0 +1,10 @@
+--Reactions table
+ 
+CREATE TABLE Reactions(
+ReactionId int identity(1,1) primary key,
+PostId int references [dbo].[Posts] (PostId),
+ExpressedBy int references [dbo].[PersonalDetails]([UserId]),
+Reactions varchar(10) null,
+Comments varchar(250) null,
+PictureLocation varchar(50) null   
+) 
