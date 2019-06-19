@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign in form</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        body:before{
+            content: '';
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("C:/Users/dr5/Downloads/guillermo-latorre-1107700-unsplash.jpg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-filter: blur(0px);
+            -moz-filter: blur(0px);
+            -o-filter: blur(0px);
+            -ms-filter: blur(0px);
+            filter: blur(01px);
+        }
+        .contact-form
+        {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 500px;
+            height: 1000px;
+            
+            border-radius: 25px;
+            padding: 80px 40px;
+            box-sizing: border-box;
+            background: rgba(0,0,0,.5);
+        }
+        .avatar {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            top: calc(-80px/2);
+            left: calc(50% - 40px);
+        }
+        .contact-form h2 {
+            margin: 0;
+            padding: 0 0 20px;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .contact-form p
+        {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            color: #fff;
+        }
+        .contact-form input
+        {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="password"]
+        {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .contact-form input[type="submit"] {
+            height: 40px;
+            color: rgb(253, 252, 252);
+            font-size: 25px;
+            width: 200px;
+            box-align: center;
+            background: rgb(158, 156, 156);
+            cursor: pointer;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            margin-top: 15%;
+        }
+        .contact-form a
+        {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        input[type="checkbox"] {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-form">
+        <img src="C:/Users/dr5/Downloads/computer-1331579_1280.png" class="avatar">
+        <h2>Sign Up</h2>
+        <form>
+            <p>Name</p>
+            <input type="text" name="" placeholder="Enter Name">
+            <p>Email</p>
+            <input type="text" name="" placeholder="Enter Email">
+            <p>Phone Number</p>
+            <input type="text" name="" placeholder="Enter Phone Number">
+            <p>Date of Birth</p>
+            <input type="date" name="" placeholder="Enter DOB">
+            <p>Gender</p>
+            <input type="text" name="" placeholder="Enter Gender">
+            <p>Password</p>
+            <input type="password" name="" placeholder="Enter Password">
+            <p>Confirm Password</p>
+            <input type="password" name="" placeholder="Re-enter Password">
+            <centre>
+            <input type="submit" name="" value="SignUp">
+            <input type="submit" name="" value="Cancel">
+            </centre>
+        </form>
+    </div>
+</body>
+</html>

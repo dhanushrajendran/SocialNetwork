@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>transparent login form</title>
+    <title>sign in form</title>
     <style>
         body{
             margin: 0;
@@ -13,16 +13,16 @@
             position: fixed;
             width: 100vw;
             height: 100vh;
-            background-image: url("4.jpeg");
+            background-image: url("C:/Users/dr5/Downloads/azamat-kinzhitaev-1454722-unsplash.jpg");
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
-            -webkit-filter: blur(10px);
-            -moz-filter: blur(10px);
-            -o-filter: blur(10px);
-            -ms-filter: blur(10px);
-            filter: blur(10px);
+            -webkit-filter: blur(0px);
+            -moz-filter: blur(0px);
+            -o-filter: blur(0px);
+            -ms-filter: blur(0px);
+            filter: blur(02px);
         }
         .contact-form
         {
@@ -32,14 +32,15 @@
             transform: translate(-50%,-50%);
             width: 400px;
             height: 500px;
+            border-radius: 25px;
             padding: 80px 40px;
             box-sizing: border-box;
             background: rgba(0,0,0,.5);
         }
         .avatar {
             position: absolute;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             overflow: hidden;
             top: calc(-80px/2);
@@ -77,9 +78,9 @@
         }
         .contact-form input[type="submit"] {
             height: 30px;
-            color: #fff;
+            color: rgb(253, 252, 252);
             font-size: 15px;
-            background: red;
+            background: rgb(158, 156, 156);
             cursor: pointer;
             border-radius: 25px;
             border: none;
@@ -100,14 +101,14 @@
 </head>
 <body>
     <div class="contact-form">
-        <img src="2.jpg" class="avatar">
-        <h2>Contact Form</h2>
+        <img src="C:/Users/dr5/Downloads/computer-1331579_1280.png" class="avatar">
+        <h2>Log In</h2>
         <form>
             <p>Email</p>
             <input type="text" name="" placeholder="Enter Email">
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password">
-            <input type="submit" name="" value="Sign In">
+            <input type="submit" name="" value="Log In">
             <p><input type="checkbox"> Remember Me</p>
         </form>
     </div>
