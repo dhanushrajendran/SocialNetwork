@@ -4,23 +4,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
 
 .navbar {
-  width: 92.5%;
-  background-color: #555;
+  width: 93.8%;
   overflow:auto;
   float: right;
   margin: 0 auto;
+  background: linear-gradient(132deg, #555, #fafbfc);
+                background-size: 150% 150%;
+                animation: BackgroundGradient 10s ease infinite;
+            
 
 }
 
 .navbar a {
-  float: left;;
-  padding: 12px;
+  float: left;
+  padding: 5.5px;
   color: white;
   text-decoration: none;
-  font-size: 33px;
+  font-size: 28.7px;
 }
 
 .navbar .search-container {
@@ -40,7 +43,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   
   .navbar .search-container button {
     float: right;
-    padding: 6px;
+    padding: 7px;
     margin-top: 8px;
     margin-right: 0px;
     background: #ddd;
@@ -55,7 +58,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 /* Current/active navbar link */
 
 .active {
-  background-color: rgb(74, 75, 74);
+  background-color: #555;
 }
 
 @media screen and (max-width: 500px) {
@@ -75,6 +78,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
   .navbar input[type=text] {
     border: 1px solid #ccc;  
   }
+   @keyframes BackgroundGradient {
+                0% {background-position: 0% 50%;}
+                50% {background-position: 100% 50%;}
+                100% {background-position: 0% 50%;}
 }
 
 </style>
@@ -84,8 +91,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <div class="navbar">
   <a class="active" href="#"><i class="fas fa-users"></i> Friends </a> 
   <a href="#"><i class="fas fa-house-damage"></i> Home </a> 
-  <a href="#"><i class="fas fa-plus-circle"></i> Add Post </a>
-  <a href="#"><i class="fas fa-wrench"></i> Settings </a>
+  <a href="#"><i class="fas fa-plus-square"></i> Add Post </a>
+  <a href="#"><i class="fa fa-gear"></i> Settings </a>
   <a class="search-container">
         
           <input type="text" placeholder="Search.." name="search">
@@ -121,7 +128,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
         z-index: 1; /* Stay on top */
         top: 0;
         left: 0;
-        background-color:#555; /* Black*/
+        background-color:#111; /* Black*/
         overflow-x: auto; /* Disable horizontal scroll */
         padding-top: 40px; /* Place content 60px from the top */
         transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
@@ -131,7 +138,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
       .sidepanel a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
-        font-size: 25px;
+        font-size: 20px;
         color: rgb(248, 242, 242);
         display: block;
         transition: 0.3s;
@@ -147,22 +154,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
         position: absolute;
         top: 0;
         right: 25px;
-        font-size: 36px;
+        font-size: 25px;
         margin-left: 50px;
       }
       
       /* Style the button that is used to open the sidepanel */
       .openbtn {
-        font-size: 33.1px;
+        font-size: 25px;
         cursor: pointer;
         background-color: #555;
         color: white;
-        padding: 10px 15px;
+        padding: 11px 14px;
         border: none;
       }
       
       .openbtn:hover {
-        background-color: #555;
+        background-color: #111;
       }
       </style>
       <script>
