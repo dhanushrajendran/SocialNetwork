@@ -167,26 +167,6 @@ body {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida
 }
 
 
-.name-block {
-        width: 150px;
-        height: 15px;
-        background: #cdcdcd;
-        margin: 30px;
-        
-      }
-      .post-block {
-        margin: 20px;
-        width: 250px;
-        height: 50px;
-        background: linear-gradient(to top, #ddd 20%, #fff 20%, #fff 40%, #ddd 40%, #ddd 60%, #fff 60%, #fff 80%, #ddd 80%);
-      }
-      .likes-block {
-        margin: 40px 20px 20px 20px;
-        background: linear-gradient(to right, #bbb 8%, #fff 8%, #fff 13%, #bbb 13%, #bbb 45%, #fff 45%, #fff 55%, #bbb 55%, #bbb 63%, #fff 63%, #fff 68%, #bbb 68%);
-        height: 13px;
-        
-        
-    }
 
 @media screen and (max-width: 500px) {
   .navbar a {
@@ -205,7 +185,80 @@ body {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida
   .navbar input[type=text] {
     border: 1px solid #ccc;  
   }
-   @keyframes BackgroundGradient {
+
+            
+         * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
+            
+            body {
+              min-height: 100vh;
+              width: 100%;
+              font-family: var(--font);
+              background: var(--theme);
+            }
+            .container {
+              color: var(--white);
+              max-width: 450px;
+              width: 90vw;
+              margin: 1rem auto;
+              display: flex;
+              flex-direction: column;
+            }
+            .container h1 {
+              font-family: var(--font-heading);
+              font-size: 1.2rem;
+              line-height: 2;
+            }
+            .container a {
+              color: inherit;
+              margin: 1rem 0;
+            }
+            .episode {
+              padding: 1rem;
+              border-radius: 4px;
+              box-shadow: 0 1px 5px var(--white-t);
+              color: var(--black);
+              background: #fff;
+              margin: 1rem 0;
+              animation: introduce 1s cubic-bezier(0.24, 1.07, 0.72, 1.25) both;
+              border-bottom: 2px solid var(--theme-t);
+            }
+            .episode h3 {
+              font-weight: 300;
+              line-height: 2;
+            }
+            .episode__details {
+              margin: 1rem 0;
+              display: flex;
+              justify-content: space-between;
+              font-weight: bold;
+            }
+            @import url("https://fonts.googleapis.com/css?family=Cambay|Open+Sans");
+
+            /* detail root variables */
+           
+            
+            /*
+            animation introducing each episode as slightly ascending
+            each episode staggered with increasing delay
+            */
+            @keyframes introduce {
+              0% {
+                opacity: 0;
+                transform: translateY(4rem);
+              }
+              40% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+             @keyframes BackgroundGradient {
                 0% {background-position: 0% 50%;}
                 50% {background-position: 100% 50%;}
                 100% {background-position: 0% 50%;}
@@ -255,43 +308,11 @@ body {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida
       </div>
       <button class="openbtn" onclick="openNav()">&#9776;<i class="fa fa-fw fa-user"></i></button> 
 
-      <div class="separating-line"></div>
-  <div class="post">
-    <div class="name-block"></div>
-    <div class="post-block"></div>
-    <div class="likes-block"></div>
-    <div class="separating-line"></div>
-  </div>
-  <div class="post">
-    <div class="name-block"></div>
-    <div class="post-block"></div>
-    <div class="likes-block"></div>
-    <div class="separating-line"></div>
-  </div>
-  <div class="post">
-    <div class="name-block"></div>
-    <div class="post-block"></div>
-    <div class="likes-block"></div>
-    <div class="separating-line"></div>
-  </div>
-  <div class="post">
-    <div class="name-block"></div>
-    <div class="post-block"></div>
-    <div class="likes-block"></div>
-    <div class="separating-line"></div>
-  </div>
-  <div class="post">
-    <div class="name-block"></div>
-    <div class="post-block"></div>
-    <div class="likes-block"></div>
-    <div class="separating-line"></div>
-  </div>
-  <div class="post">
-    <div class="name-block"></div>
-    <div class="post-block"></div>
-    <div class="likes-block"></div>
-    <div class="separating-line"></div>
-  </div>
+      <div class="container">
+      <h1></h1>
+      <a href="https://podcast.freecodecamp.org/rss">Source</a>
+      <div class="episodes"></div>
+    </div>
 </body>
 </html>
     
@@ -305,4 +326,61 @@ body {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida
       function closeNav() {
         document.getElementById("mySidepanel").style.width = "0";
       }
+      const URL = 'https://podcast.freecodecamp.org/rss';
+                    const containerEpisodes = document.querySelector('.episodes');
+                    
+                    // function called to display the RSS information in the DOM
+                    const extractRSSFeed = (text) => {
+                      // DOMParser allows to retrieve the HTML structure from the RSS feed text (which is written in XML)
+                      const parser = new DOMParser();
+                      const doc = parser.parseFromString(text, 'application/xml');
+                    
+                      // information for the different episodes is stored in a <item> element
+                      const items = doc.querySelectorAll('item');
+                      /* relevant information is found under
+                        <title>
+                        <pubDate>
+                        <enclosure> for the audio, and right next to it, <itunes:duration>
+                    
+                        display the title atop the date and next to this date the duration
+                      */
+                      const markup = [...items].map((item, index) => {
+                        const { textContent: title } = item.querySelector('title');
+                        const { textContent: pubDate } = item.querySelector('pubDate');
+                        // for the date create a new date object as to easily format the lengthy text with the method .toDateString()
+                        const date = new Date(pubDate);
+                        // for the duration the element follows the <enclosure> element
+                        const { textContent: time } = item.querySelector('enclosure').nextElementSibling;
+                    
+                        // separate the seconds, minutes and hours
+                        // ! hours might be undefined given that for some items the podcast lasts less then an hour
+                        const timeComponents = time.split(':');
+                        const [, minutes, hours] = timeComponents.reverse();
+                    
+                        // compute the total minutes
+                        const totalMinutes = (hours) ? parseInt(hours, 10) * 60 + parseInt(minutes, 10) : parseInt(minutes, 10);
+                    
+                        // for each subsequent item add an increasing delay
+                        return `
+                          <div class="episode" style="animation-delay: ${0.05 * index + 0.5}s;">
+                            <h3>${title}</h3>
+                            <div class="episode__details">
+                              <p>
+                                ${date.toDateString()}
+                              </p>
+                              <p>
+                                ${totalMinutes} mins
+                              </p>
+                            </div>
+                          </div>`;
+                      }).join('');
+                    
+                      // append the detailed block in the selected continer
+                      containerEpisodes.innerHTML = markup;
+                    };
+                    
+                    // fetch the information from the defined URL and call the function passing the content returned as a string
+                    fetch(URL)
+                      .then(response => response.text())
+                      .then(text => extractRSSFeed(text));
      </script>

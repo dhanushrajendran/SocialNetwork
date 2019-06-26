@@ -1,0 +1,386 @@
+<div class="navbar">
+        <a class="active" href="#"><i class="fas fa-users"></i> Friends </a> 
+        <a href="#"><i class="fas fa-house-damage"></i> Home </a> 
+        <a href="#"><i class="fas fa-plus-square"></i> Add Post </a>
+        <div class="dropdown">
+              <button class="dropbtn"> Settings  
+                <i class="fa fa-gear"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#"><i class="fas fa-edit"></i>Update Profile</a>
+                <a href="#"><i class="fa fa-trash"></i>Delete Account</a>
+                <a href="#"><i class="fas fa-power-off"></i>Log Out</a>
+              </div>
+            </div> 
+        <a class="search-container">
+              
+                <input type="text" placeholder="Search." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+                    
+             
+      </div>
+      <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="active" href="#"><i class="fas fa-user-circle" style="font-size:80px;color:white;text-shadow:2px 2px 4px #000000;"></i></a>
+            <a href="#">Dhanush</a>
+            <a href="#">dhanushraj442@gmail.com</a>
+            <a href="#">02/06/1999</a>
+            <a href="#">Male</a>
+            <a href="#">phone no</a>
+            <a href="#">school</a>
+            <a href="#">college</a>
+            <a href="#">work</a>
+            <a href="#">Hometown</a>
+    
+    
+          </div>
+          <button class="openbtn" onclick="openNav()">&#9776;<i class="fa fa-fw fa-user"></i></button> 
+    
+      
+      <div class="container">
+        <h1></h1>
+        <a href="https://podcast.freecodecamp.org/rss"></a>
+        <div class="episodes"></div>
+      </div>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+      <style>@import url("https://fonts.googleapis.com/css?family=Cambay|Open+Sans");
+     
+
+
+body {font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif}
+
+.navbar {
+  width: 94.4%;
+  overflow:auto;
+  float: right;
+  margin: 0 auto;
+  background: linear-gradient(to right, #33ddff, #55aaff,darkblue);
+                background-size: 150% 150%;
+                animation: BackgroundGradient 10s ease infinite;
+            
+
+}
+
+.navbar a {
+  float: left;
+  padding: 5.5px;
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+}
+
+.navbar .search-container {
+    float: right;
+  }
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #555;
+}
+.navbar input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .navbar .search-container button {
+    float: right;
+    padding: 7px;
+    margin-top: 8px;
+    margin-right: 0px;
+    background: #ddd;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .navbar .search-container button:hover {
+    background: #ccc;
+  }
+/* Current/active navbar link */
+
+.active {
+  background-color:linear-gradient(to right, #33ddff, #55aaff,darkblue);
+}
+.sidepanel {
+        height:100%; /* Specify a height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0;
+        left: 0;
+        background-color:#111; /* Black*/
+        overflow-x: auto; /* Disable horizontal scroll */
+        padding-top: 40px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+      }
+      
+      /* The sidepanel links */
+      .sidepanel a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: rgb(248, 242, 242);
+        display: block;
+        transition: 0.3s;
+      }
+      
+      /* When you mouse over the navigation links, change their color */
+      .sidepanel a:hover {
+        color: #f1f1f1;
+      }
+      
+      /* Position and style the close button (top right corner) */
+      .sidepanel .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 25px;
+        margin-left: 50px;
+      }
+      
+      /* Style the button that is used to open the sidepanel */
+      .openbtn {
+        font-size: 22px;
+        cursor: pointer;
+        background-color: #33ddff;
+        color: white;
+        padding: 11px 14px;
+        border: none;
+      }
+      
+      .openbtn:hover {
+        background-color: #555;
+      }
+
+      .dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px; 
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  font-size: 4px;
+  padding: 8px 8px;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,1);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  line-height: 0;
+  height: 16px;
+  font-size: 26px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #33ddff;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+  .navbar a, .navbar input[type=text],
+  .navbar .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    widows: 100%;
+    margin:0;
+    padding: 70px;
+  }
+  .navbar input[type=text] {
+    border: 1px solid #ccc;  
+  }
+   @keyframes BackgroundGradient {
+                0% {background-position: 0% 50%;}
+                50% {background-position: 100% 50%;}
+                100% {background-position: 0% 50%;}
+}}
+
+
+            /* detail root variables */
+            :root {
+              --font: "Open Sans", sans-serif;
+              --font-heading: "Cambay", sans-serif;
+              --white: #fff;
+              --white-t: #ffffff44;
+              --black: #333;
+              --theme: #315694;
+              --theme-t: #31569477;
+            }
+            
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
+            
+            body {
+              min-height: 100vh;
+              width: 100%;
+              font-family: var(--font);
+              background: var(--theme);
+            }
+            .container {
+              color: var(--white);
+              max-width: 450px;
+              width: 90vw;
+              margin: 1rem auto;
+              display: flex;
+              flex-direction: column;
+            }
+            .container h1 {
+              font-family: var(--font-heading);
+              font-size: 1.2rem;
+              line-height: 2;
+            }
+            .container a {
+              color: inherit;
+              margin: 1rem 0;
+            }
+            .episode {
+              padding: 1rem;
+              border-radius: 4px;
+              box-shadow: 0 1px 5px var(--white-t);
+              color: var(--black);
+              background: #fff;
+              margin: 1rem 0;
+              animation: introduce 1s cubic-bezier(0.24, 1.07, 0.72, 1.25) both;
+              border-bottom: 2px solid var(--theme-t);
+            }
+            .episode h3 {
+              font-weight: 300;
+              line-height: 2;
+            }
+            .episode__details {
+              margin: 1rem 0;
+              display: flex;
+              justify-content: space-between;
+              font-weight: bold;
+            }
+            
+            /*
+            animation introducing each episode as slightly ascending
+            each episode staggered with increasing delay
+            */
+            @keyframes introduce {
+              0% {
+                opacity: 0;
+                transform: translateY(4rem);
+              }
+              40% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+            </style>
+
+            <script>function openNav() {
+                    document.getElementById("mySidepanel").style.width = "250px";
+                  }
+                  
+                  /* Set the width of the sidebar to 0 (hide it) */
+                  function closeNav() {
+                    document.getElementById("mySidepanel").style.width = "0";
+                  }const URL = 'https://podcast.freecodecamp.org/rss';
+                    const containerEpisodes = document.querySelector('.episodes');
+                    
+                    // function called to display the RSS information in the DOM
+                    const extractRSSFeed = (text) => {
+                      // DOMParser allows to retrieve the HTML structure from the RSS feed text (which is written in XML)
+                      const parser = new DOMParser();
+                      const doc = parser.parseFromString(text, 'application/xml');
+                    
+                      // information for the different episodes is stored in a <item> element
+                      const items = doc.querySelectorAll('item');
+                      /* relevant information is found under
+                        <title>
+                        <pubDate>
+                        <enclosure> for the audio, and right next to it, <itunes:duration>
+                    
+                        display the title atop the date and next to this date the duration
+                      */
+                      const markup = [...items].map((item, index) => {
+                        const { textContent: title } = item.querySelector('title');
+                        const { textContent: pubDate } = item.querySelector('pubDate');
+                        // for the date create a new date object as to easily format the lengthy text with the method .toDateString()
+                        const date = new Date(pubDate);
+                        // for the duration the element follows the <enclosure> element
+                        const { textContent: time } = item.querySelector('enclosure').nextElementSibling;
+                    
+                        // separate the seconds, minutes and hours
+                        // ! hours might be undefined given that for some items the podcast lasts less then an hour
+                        const timeComponents = time.split(':');
+                        const [, minutes, hours] = timeComponents.reverse();
+                    
+                        // compute the total minutes
+                        const totalMinutes = (hours) ? parseInt(hours, 10) * 60 + parseInt(minutes, 10) : parseInt(minutes, 10);
+                    
+                        // for each subsequent item add an increasing delay
+                        return `
+                          <div class="episode" style="animation-delay: ${0.05 * index + 0.5}s;">
+                            <h3>${title}</h3>
+                            <div class="episode__details">
+                              <p>
+                                ${date.toDateString()}
+                              </p>
+                              <p>
+                                ${totalMinutes} mins
+                              </p>
+                            </div>
+                          </div>`;
+                      }).join('');
+                    
+                      // append the detailed block in the selected continer
+                      containerEpisodes.innerHTML = markup;
+                    };
+                    
+                    // fetch the information from the defined URL and call the function passing the content returned as a string
+                    fetch(URL)
+                      .then(response => response.text())
+                      .then(text => extractRSSFeed(text));
+                    </script>
